@@ -1,0 +1,29 @@
+<div class="card-container">
+    
+    <div *ngIf="weatherData; else showThis" class="card" tabindex="0">
+        <div class="text-center">
+            <p class="corner-text text-left align-top">{{ weatherData.city.name }}, {{ weatherData.city.country }}</p>
+        </div>
+      
+      <div class="text-center">
+        <p class="corner-text text-right align-top text-lg">{{ weatherData.list[0].main.temp }}°F</p>
+      </div>
+
+        <p class="corner-text main-text">{{ weatherData.list[0].weather[0].description }}</p>
+      
+      <div class="text-center">
+        <p class="corner-text text-left align-bottom"> <span>Wind</span> <br> {{ weatherData.list[0].wind.speed }}MPH</p>
+      </div>
+      
+      <div class="text-center">
+        <p class="corner-text text-right align-bottom"> <span>Humidity</span> <br> {{ weatherData.list[0].main.humidity }}%</p>
+      </div>
+    </div>
+
+    <ng-template #showThis>      
+        <div  class="card" tabindex="0">
+            <p class="corner-text">{{ message }}</p>
+        </div>
+        
+    </ng-template>
+</div>
